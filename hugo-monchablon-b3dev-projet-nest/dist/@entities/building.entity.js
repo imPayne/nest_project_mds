@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuildingEntity = void 0;
 const typeorm_1 = require("typeorm");
+const building_common_equipment_entity_1 = require("./building_common_equipment.entity");
 let BuildingEntity = class BuildingEntity {
 };
 exports.BuildingEntity = BuildingEntity;
@@ -22,6 +23,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], BuildingEntity.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => building_common_equipment_entity_1.BuildingToCommonEquipment, buildingToCommonEquipment => buildingToCommonEquipment.commonEquipment),
+    __metadata("design:type", Array)
+], BuildingEntity.prototype, "buildingToCommonEquipments", void 0);
 exports.BuildingEntity = BuildingEntity = __decorate([
     (0, typeorm_1.Entity)()
 ], BuildingEntity);

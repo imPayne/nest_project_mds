@@ -16,6 +16,12 @@ const address_entity_1 = require("./@entities/address.entity");
 const building_module_1 = require("./building/building.module");
 const address_module_1 = require("./address/address.module");
 const apartment_module_1 = require("./apartment/apartment.module");
+const common_equipment_module_1 = require("./common_equipment/common_equipment.module");
+const building_common_equipment_module_1 = require("./building_common_equipment/building_common_equipment.module");
+const apartment_entity_1 = require("./@entities/apartment.entity");
+const building_common_equipment_entity_1 = require("./@entities/building_common_equipment.entity");
+const common_equipment_entity_1 = require("./@entities/common_equipment.entity");
+const apartment_type_module_1 = require("./apartment-type/apartment-type.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -27,14 +33,17 @@ exports.AppModule = AppModule = __decorate([
                 host: 'localhost',
                 port: 3306,
                 username: 'root',
-                password: 'bXdYvx.b',
+                password: '',
                 database: 'apinest',
-                entities: [address_entity_1.AddressEntity, building_entity_1.BuildingEntity],
+                entities: [address_entity_1.AddressEntity, building_entity_1.BuildingEntity, apartment_entity_1.ApartmentEntity, building_common_equipment_entity_1.BuildingToCommonEquipment, common_equipment_entity_1.CommonEquipmentEntity],
                 synchronize: true,
             }),
             building_module_1.BuildingModule,
             address_module_1.AddressModule,
             apartment_module_1.ApartmentModule,
+            common_equipment_module_1.CommonEquipmentModule,
+            building_common_equipment_module_1.BuildingCommonEquipmentModule,
+            apartment_type_module_1.ApartmentTypeModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

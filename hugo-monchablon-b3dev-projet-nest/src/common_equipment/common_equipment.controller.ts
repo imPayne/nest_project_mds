@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { CommonEquipmentService } from './common_equipment.service';
 import { CreateCommonEquipmentDto } from './dto/create-common_equipment.dto';
-import { UpdateCommonEquipmentDto } from './dto/update-common_equipment.dto';
 
 @Controller('common-equipment')
 export class CommonEquipmentController {
@@ -23,7 +22,7 @@ export class CommonEquipmentController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCommonEquipmentDto: UpdateCommonEquipmentDto) {
+  update(@Param('id') id: string, @Body() updateCommonEquipmentDto) {
     return this.commonEquipmentService.update(+id, updateCommonEquipmentDto);
   }
 

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { BuildingToCommonEquipment } from "./building_common_equipment.entity";
 
 @Entity()
 export class CommonEquipmentEntity {
@@ -8,6 +9,6 @@ export class CommonEquipmentEntity {
   @Column()
   name: string;
 
-  @Column({ type: 'date', nullable: true })
-  lastInspection?: string;
+  @OneToMany(() => BuildingToCommonEquipment, buildingToCommonEquipment => buildingToCommonEquipment.building)
+  public buildingToCommonEquipments: BuildingToCommonEquipment[];
 }
