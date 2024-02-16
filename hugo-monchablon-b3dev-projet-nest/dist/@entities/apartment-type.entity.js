@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApartmentTypeEntity = void 0;
 const typeorm_1 = require("typeorm");
+const apartment_entity_1 = require("./apartment.entity");
 let ApartmentTypeEntity = class ApartmentTypeEntity {
 };
 exports.ApartmentTypeEntity = ApartmentTypeEntity;
@@ -26,6 +27,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], ApartmentTypeEntity.prototype, "maxOccupants", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => apartment_entity_1.ApartmentEntity, (apartment) => apartment.apartmentType),
+    __metadata("design:type", Array)
+], ApartmentTypeEntity.prototype, "apartments", void 0);
 exports.ApartmentTypeEntity = ApartmentTypeEntity = __decorate([
     (0, typeorm_1.Entity)()
 ], ApartmentTypeEntity);

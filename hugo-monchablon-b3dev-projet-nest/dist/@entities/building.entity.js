@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuildingEntity = void 0;
 const typeorm_1 = require("typeorm");
 const building_common_equipment_entity_1 = require("./building_common_equipment.entity");
+const apartment_entity_1 = require("./apartment.entity");
+const address_entity_1 = require("./address.entity");
 let BuildingEntity = class BuildingEntity {
 };
 exports.BuildingEntity = BuildingEntity;
@@ -24,9 +26,21 @@ __decorate([
     __metadata("design:type", String)
 ], BuildingEntity.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => building_common_equipment_entity_1.BuildingToCommonEquipment, buildingToCommonEquipment => buildingToCommonEquipment.commonEquipment),
+    (0, typeorm_1.Column)({ type: 'date' }),
+    __metadata("design:type", String)
+], BuildingEntity.prototype, "constructionDate", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => building_common_equipment_entity_1.BuildingToCommonEquipment, (buildingToCommonEquipment) => buildingToCommonEquipment.commonEquipment),
     __metadata("design:type", Array)
 ], BuildingEntity.prototype, "buildingToCommonEquipments", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => apartment_entity_1.ApartmentEntity, (apartment) => apartment.building),
+    __metadata("design:type", Array)
+], BuildingEntity.prototype, "apartments", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => address_entity_1.AddressEntity, (address) => address.building),
+    __metadata("design:type", address_entity_1.AddressEntity)
+], BuildingEntity.prototype, "address", void 0);
 exports.BuildingEntity = BuildingEntity = __decorate([
     (0, typeorm_1.Entity)()
 ], BuildingEntity);

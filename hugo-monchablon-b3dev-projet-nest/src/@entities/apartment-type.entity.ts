@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { ApartmentEntity } from './apartment.entity';
 
 @Entity()
 export class ApartmentTypeEntity {
@@ -10,4 +11,7 @@ export class ApartmentTypeEntity {
 
   @Column()
   maxOccupants: number;
+
+  @OneToMany(() => ApartmentEntity, (apartment) => apartment.apartmentType)
+  apartments: ApartmentEntity[];
 }

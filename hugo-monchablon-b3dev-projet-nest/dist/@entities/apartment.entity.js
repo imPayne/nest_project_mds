@@ -11,6 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApartmentEntity = void 0;
 const typeorm_1 = require("typeorm");
+const owner_entity_1 = require("./owner.entity");
+const building_entity_1 = require("./building.entity");
+const apartment_type_entity_1 = require("./apartment-type.entity");
+const option_entity_1 = require("./option.entity");
+const tenant_entity_1 = require("./tenant.entity");
 let ApartmentEntity = class ApartmentEntity {
 };
 exports.ApartmentEntity = ApartmentEntity;
@@ -20,12 +25,32 @@ __decorate([
 ], ApartmentEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], ApartmentEntity.prototype, "numberApartment", void 0);
+    __metadata("design:type", String)
+], ApartmentEntity.prototype, "doorNumber", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], ApartmentEntity.prototype, "floor", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => owner_entity_1.OwnerEntity, (owner) => owner.apartments),
+    __metadata("design:type", owner_entity_1.OwnerEntity)
+], ApartmentEntity.prototype, "owner", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => building_entity_1.BuildingEntity, (building) => building.apartments),
+    __metadata("design:type", building_entity_1.BuildingEntity)
+], ApartmentEntity.prototype, "building", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => apartment_type_entity_1.ApartmentTypeEntity, (apartmentType) => apartmentType.apartments),
+    __metadata("design:type", apartment_type_entity_1.ApartmentTypeEntity)
+], ApartmentEntity.prototype, "apartmentType", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => option_entity_1.OptionEntity, (option) => option.apartments),
+    __metadata("design:type", Array)
+], ApartmentEntity.prototype, "options", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => tenant_entity_1.TenantEntity, (tenant) => tenant.apartment),
+    __metadata("design:type", Array)
+], ApartmentEntity.prototype, "tenants", void 0);
 exports.ApartmentEntity = ApartmentEntity = __decorate([
     (0, typeorm_1.Entity)()
 ], ApartmentEntity);

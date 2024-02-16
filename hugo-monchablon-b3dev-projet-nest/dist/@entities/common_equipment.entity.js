@@ -24,7 +24,7 @@ __decorate([
     __metadata("design:type", String)
 ], CommonEquipmentEntity.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => building_common_equipment_entity_1.BuildingToCommonEquipment, buildingToCommonEquipment => buildingToCommonEquipment.building),
+    (0, typeorm_1.OneToMany)(() => building_common_equipment_entity_1.BuildingToCommonEquipment, (buildingToCommonEquipment) => buildingToCommonEquipment.building),
     __metadata("design:type", Array)
 ], CommonEquipmentEntity.prototype, "buildingToCommonEquipments", void 0);
 exports.CommonEquipmentEntity = CommonEquipmentEntity = __decorate([

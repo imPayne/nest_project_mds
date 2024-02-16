@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
+import { BuildingEntity } from './building.entity';
 
 @Entity()
 export class AddressEntity {
@@ -12,4 +19,7 @@ export class AddressEntity {
   zipCode: string;
   @Column()
   city: string;
+
+  @OneToOne(() => BuildingEntity, (building) => building.address)
+  building: BuildingEntity;
 }

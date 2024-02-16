@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { BuildingToCommonEquipment } from "./building_common_equipment.entity";
+import { BuildingToCommonEquipment } from './building_common_equipment.entity';
 
 @Entity()
 export class CommonEquipmentEntity {
@@ -9,6 +9,9 @@ export class CommonEquipmentEntity {
   @Column()
   name: string;
 
-  @OneToMany(() => BuildingToCommonEquipment, buildingToCommonEquipment => buildingToCommonEquipment.building)
+  @OneToMany(
+    () => BuildingToCommonEquipment,
+    (buildingToCommonEquipment) => buildingToCommonEquipment.building,
+  )
   public buildingToCommonEquipments: BuildingToCommonEquipment[];
 }
