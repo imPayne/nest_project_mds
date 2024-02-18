@@ -11,7 +11,9 @@ describe('CommonEquipmentController', () => {
       providers: [CommonEquipmentService],
     }).compile();
 
-    controller = module.get<CommonEquipmentController>(CommonEquipmentController);
+    controller = module.get<CommonEquipmentController>(
+      CommonEquipmentController,
+    );
   });
 
   it('should be defined', () => {

@@ -9,7 +9,9 @@ describe('BuildingCommonEquipmentService', () => {
       providers: [BuildingCommonEquipmentService],
     }).compile();
 
-    service = module.get<BuildingCommonEquipmentService>(BuildingCommonEquipmentService);
+    service = module.get<BuildingCommonEquipmentService>(
+      BuildingCommonEquipmentService,
+    );
   });
 
   it('should be defined', () => {

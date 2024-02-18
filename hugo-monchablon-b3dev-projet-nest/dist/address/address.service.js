@@ -5,28 +5,53 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AddressService = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("typeorm");
+const address_entity_1 = require("../@entities/address.entity");
+const typeorm_2 = require("@nestjs/typeorm");
 let AddressService = class AddressService {
-    create(createAddressDto) {
-        return 'This action adds a new address';
+    constructor(repository) {
+        this.repository = repository;
     }
-    findAll() {
-        return `This action returns all address`;
+    async create(newAddress) {
+        const { id } = await this.repository.save({
+            streetNumber: newAddress.streetNumber,
+            street: newAddress.street,
+            zipCode: newAddress.zipCode,
+            city: newAddress.city,
+        });
+        return await this.findOne(id);
     }
-    findOne(id) {
-        return `This action returns a #${id} address`;
+    async findAll() {
+        return this.repository.find();
     }
-    update(id, updateAddressDto) {
-        return `This action updates a #${id} address`;
+    async findOne(id) {
+        return await this.repository.findOne({ where: { id } });
     }
-    remove(id) {
-        return `This action removes a #${id} address`;
+    async update(id, updateAddressDto) {
+        const getAddress = await this.findOne(id);
+        Object.assign(getAddress, updateAddressDto);
+        return this.repository.findOne({ where: { id } });
+    }
+    async remove(id) {
+        const toRemove = await this.findOne(id);
+        const address = toRemove;
+        await this.repository.remove(toRemove);
+        return address;
     }
 };
 exports.AddressService = AddressService;
 exports.AddressService = AddressService = __decorate([
-    (0, common_1.Injectable)()
+    (0, common_1.Injectable)(),
+    __param(0, (0, typeorm_2.InjectRepository)(address_entity_1.AddressEntity)),
+    __metadata("design:paramtypes", [typeorm_1.Repository])
 ], AddressService);
 //# sourceMappingURL=address.service.js.map

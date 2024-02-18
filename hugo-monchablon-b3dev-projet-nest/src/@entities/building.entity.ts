@@ -18,7 +18,7 @@ export class BuildingEntity {
   name: string;
 
   @Column({ type: 'date' })
-  constructionDate: string;
+  constructionDate: Date;
 
   @OneToMany(
     () => BuildingToCommonEquipment,

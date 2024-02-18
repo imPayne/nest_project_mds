@@ -3,13 +3,14 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToOne,
-  ManyToMany, OneToMany
-} from "typeorm";
+  ManyToMany,
+  OneToMany,
+} from 'typeorm';
 import { OwnerEntity } from './owner.entity';
 import { BuildingEntity } from './building.entity';
 import { ApartmentTypeEntity } from './apartment-type.entity';
 import { OptionEntity } from './option.entity';
-import { TenantEntity } from "./tenant.entity";
+import { TenantEntity } from './tenant.entity';
 
 @Entity()
 export class ApartmentEntity {

@@ -29,7 +29,7 @@ import { OptionEntity } from './@entities/option.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'bXdYvx.b',
+      password: '',
       database: 'apinest',
       entities: [
         AddressEntity,

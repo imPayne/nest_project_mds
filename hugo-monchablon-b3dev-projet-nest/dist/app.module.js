@@ -41,7 +41,7 @@ exports.AppModule = AppModule = __decorate([
                 host: 'localhost',
                 port: 3306,
                 username: 'root',
-                password: 'bXdYvx.b',
+                password: '',
                 database: 'apinest',
                 entities: [
                     address_entity_1.AddressEntity,

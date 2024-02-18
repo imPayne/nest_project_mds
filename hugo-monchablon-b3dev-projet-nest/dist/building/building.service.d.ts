@@ -1,8 +1,12 @@
 import { CreateBuildingDto } from './dto/create-building.dto';
+import { BuildingEntity } from '../@entities/building.entity';
+import { Repository } from 'typeorm';
 export declare class BuildingService {
-    create(createBuildingDto: CreateBuildingDto): string;
-    findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateBuildingDto: any): string;
-    remove(id: number): string;
+    protected readonly repository: Repository<BuildingEntity>;
+    constructor(repository: Repository<BuildingEntity>);
+    create(createBuilding: CreateBuildingDto): Promise<BuildingEntity>;
+    findAll(): Promise<BuildingEntity[]>;
+    findOne(id: number): Promise<BuildingEntity>;
+    update(id: number, updateBuildingDto: any): Promise<BuildingEntity>;
+    remove(id: number): Promise<string>;
 }

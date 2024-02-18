@@ -1,10 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CommonEquipmentService } from './common_equipment.service';
 import { CreateCommonEquipmentDto } from './dto/create-common_equipment.dto';
 
 @Controller('common-equipment')
 export class CommonEquipmentController {
-  constructor(private readonly commonEquipmentService: CommonEquipmentService) {}
+  constructor(
+    private readonly commonEquipmentService: CommonEquipmentService,
+  ) {}
 
   @Post()
   create(@Body() createCommonEquipmentDto: CreateCommonEquipmentDto) {

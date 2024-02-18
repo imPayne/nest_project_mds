@@ -27,7 +27,7 @@ __decorate([
 ], BuildingEntity.prototype, "name", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'date' }),
-    __metadata("design:type", String)
+    __metadata("design:type", Date)
 ], BuildingEntity.prototype, "constructionDate", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => building_common_equipment_entity_1.BuildingToCommonEquipment, (buildingToCommonEquipment) => buildingToCommonEquipment.commonEquipment),

@@ -11,7 +11,9 @@ describe('BuildingCommonEquipmentController', () => {
       providers: [BuildingCommonEquipmentService],
     }).compile();
 
-    controller = module.get<BuildingCommonEquipmentController>(BuildingCommonEquipmentController);
+    controller = module.get<BuildingCommonEquipmentController>(
+      BuildingCommonEquipmentController,
+    );
   });
 
   it('should be defined', () => {

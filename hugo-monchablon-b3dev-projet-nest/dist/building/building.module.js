@@ -10,13 +10,17 @@ exports.BuildingModule = void 0;
 const common_1 = require("@nestjs/common");
 const building_service_1 = require("./building.service");
 const building_controller_1 = require("./building.controller");
+const typeorm_1 = require("@nestjs/typeorm");
+const building_entity_1 = require("../@entities/building.entity");
 let BuildingModule = class BuildingModule {
 };
 exports.BuildingModule = BuildingModule;
 exports.BuildingModule = BuildingModule = __decorate([
     (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([building_entity_1.BuildingEntity])],
         controllers: [building_controller_1.BuildingController],
         providers: [building_service_1.BuildingService],
+        exports: [building_service_1.BuildingService],
     })
 ], BuildingModule);
 //# sourceMappingURL=building.module.js.map
