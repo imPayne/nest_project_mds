@@ -17,7 +17,7 @@ export class BuildingEntity {
   @Column()
   name: string;
 
-  @Column({ type: 'date' })
+  @Column()
   constructionDate: Date;
 
   @OneToMany(

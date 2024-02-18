@@ -18,15 +18,20 @@ const building_entity_1 = require("../@entities/building.entity");
 const address_entity_1 = require("../@entities/address.entity");
 const typeorm_1 = require("typeorm");
 const typeorm_2 = require("@nestjs/typeorm");
+const address_service_1 = require("../address/address.service");
 let BuildingService = class BuildingService {
-    constructor(repository) {
+    constructor(repository, addressService) {
         this.repository = repository;
+        this.addressService = addressService;
     }
     async create(createBuilding) {
         const newAddress = new address_entity_1.AddressEntity();
         Object.assign(newAddress, createBuilding.createAddress);
         const newBuilding = new building_entity_1.BuildingEntity();
         Object.assign(newBuilding, createBuilding);
+        newBuilding.address = newAddress;
+        await this.repository.save(newBuilding);
+        await this.addressService.create(newAddress);
         return this.findOne(newBuilding.id);
     }
     async findAll() {
@@ -48,6 +53,7 @@ exports.BuildingService = BuildingService;
 exports.BuildingService = BuildingService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_2.InjectRepository)(building_entity_1.BuildingEntity)),
-    __metadata("design:paramtypes", [typeorm_1.Repository])
+    __metadata("design:paramtypes", [typeorm_1.Repository,
+        address_service_1.AddressService])
 ], BuildingService);
 //# sourceMappingURL=building.service.js.map

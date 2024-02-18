@@ -4,12 +4,14 @@ import { BuildingEntity } from '../@entities/building.entity';
 import { AddressEntity } from '../@entities/address.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AddressService } from '../address/address.service';
 
 @Injectable()
 export class BuildingService {
   constructor(
     @InjectRepository(BuildingEntity)
     protected readonly repository: Repository<BuildingEntity>,
+    private readonly addressService: AddressService,
   ) {}
   async create(createBuilding: CreateBuildingDto): Promise<BuildingEntity> {
     const newAddress = new AddressEntity();
@@ -17,6 +19,9 @@ export class BuildingService {
     const newBuilding = new BuildingEntity();
     Object.assign(newBuilding, createBuilding);
 
+    newBuilding.address = newAddress;
+    await this.repository.save(newBuilding);
+    await this.addressService.create(newAddress);
     return this.findOne(newBuilding.id);
   }
 
@@ -31,6 +36,7 @@ export class BuildingService {
   async update(id: number, updateBuildingDto) {
     const getBuilding = await this.findOne(id);
     Object.assign(getBuilding, updateBuildingDto);
+
     return this.repository.findOne({ where: { id } });
   }
 
