@@ -1,26 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePersonDto } from './dto/create-person.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
+import { PersonEntity } from '../@entities/person.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class PersonService {
-  create(createPersonDto: CreatePersonDto) {
-    return 'This action adds a new person';
+  constructor(
+    @InjectRepository(PersonEntity)
+    protected readonly repository: Repository<PersonEntity>,
+  ) {}
+  async create(createPersonDto: CreatePersonDto) {
+    const newPerson = new PersonEntity();
+    Object.assign(newPerson, createPersonDto);
+    return await this.repository.save(newPerson);
   }
 
-  findAll() {
-    return `This action returns all person`;
+  async findAll() {
+    return await this.repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} person`;
+  async findOne(id: number) {
+    return await this.repository.findOne({ where: { id } });
   }
 
-  update(id: number, updatePersonDto: UpdatePersonDto) {
-    return `This action updates a #${id} person`;
+  async update(id: number, updatePersonDto: UpdatePersonDto) {
+    const getPerson = await this.findOne(id);
+    Object.assign(getPerson, updatePersonDto);
+    return await this.repository.findOne({ where: { id } });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} person`;
+  async remove(id: number) {
+    return await this.repository.softRemove({ id });
   }
 }

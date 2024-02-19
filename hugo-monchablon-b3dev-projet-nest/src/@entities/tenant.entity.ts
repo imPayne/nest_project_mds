@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { ApartmentEntity } from './apartment.entity';
-import { CreateTenantDto } from '../tenant/dto/create-tenant.dto';
 import { PersonEntity } from './person.entity';
 
 @Entity()

@@ -1,26 +1,40 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTenantDto } from './dto/create-tenant.dto';
-import { UpdateTenantDto } from './dto/update-tenant.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { TenantEntity } from '../@entities/tenant.entity';
 
 @Injectable()
 export class TenantService {
-  create(createTenantDto: CreateTenantDto) {
-    return 'This action adds a new tenant';
+  constructor(
+    @InjectRepository(TenantEntity)
+    protected readonly repository: Repository<TenantEntity>,
+  ) {}
+  async create(createTenantDto: CreateTenantDto) {
+    const newTenant = new TenantEntity();
+
+    Object.assign(newTenant, createTenantDto);
+    await this.repository.save(newTenant);
+    return newTenant;
   }
 
-  findAll() {
-    return `This action returns all tenant`;
+  async findAll() {
+    return await this.repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tenant`;
+  async findOne(id: number) {
+    return await this.repository.find({ where: { id: id } });
   }
 
-  update(id: number, updateTenantDto: UpdateTenantDto) {
-    return `This action updates a #${id} tenant`;
+  async update(id: number, updateTenantDto) {
+    return await this.repository.save({
+      id: updateTenantDto.id,
+      isPrimaryTenant: updateTenantDto.isPrimaryTenant,
+      apartment: updateTenantDto.apartment,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tenant`;
+  async remove(id: number) {
+    return await this.repository.softRemove({ id: id });
   }
 }

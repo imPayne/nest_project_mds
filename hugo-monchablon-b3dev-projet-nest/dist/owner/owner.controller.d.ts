@@ -4,9 +4,11 @@ import { UpdateOwnerDto } from './dto/update-owner.dto';
 export declare class OwnerController {
     private readonly ownerService;
     constructor(ownerService: OwnerService);
-    create(createOwnerDto: CreateOwnerDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateOwnerDto: UpdateOwnerDto): string;
-    remove(id: string): string;
+    create(createOwnerDto: CreateOwnerDto): Promise<import("../@entities/owner.entity").OwnerEntity>;
+    findAll(): Promise<import("../@entities/owner.entity").OwnerEntity[]>;
+    findOne(id: string): Promise<import("../@entities/owner.entity").OwnerEntity>;
+    update(id: string, updateOwnerDto: UpdateOwnerDto): Promise<import("../@entities/owner.entity").OwnerEntity>;
+    remove(id: string): Promise<{
+        id: number;
+    } & import("../@entities/owner.entity").OwnerEntity>;
 }

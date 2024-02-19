@@ -10,11 +10,14 @@ exports.OwnerModule = void 0;
 const common_1 = require("@nestjs/common");
 const owner_service_1 = require("./owner.service");
 const owner_controller_1 = require("./owner.controller");
+const typeorm_1 = require("@nestjs/typeorm");
+const owner_entity_1 = require("../@entities/owner.entity");
 let OwnerModule = class OwnerModule {
 };
 exports.OwnerModule = OwnerModule;
 exports.OwnerModule = OwnerModule = __decorate([
     (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([owner_entity_1.OwnerEntity])],
         controllers: [owner_controller_1.OwnerController],
         providers: [owner_service_1.OwnerService],
     })

@@ -10,11 +10,14 @@ exports.TenantModule = void 0;
 const common_1 = require("@nestjs/common");
 const tenant_service_1 = require("./tenant.service");
 const tenant_controller_1 = require("./tenant.controller");
+const tenant_entity_1 = require("../@entities/tenant.entity");
+const typeorm_1 = require("@nestjs/typeorm");
 let TenantModule = class TenantModule {
 };
 exports.TenantModule = TenantModule;
 exports.TenantModule = TenantModule = __decorate([
     (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([tenant_entity_1.TenantEntity])],
         controllers: [tenant_controller_1.TenantController],
         providers: [tenant_service_1.TenantService],
     })

@@ -30,6 +30,7 @@ const person_module_1 = require("./person/person.module");
 const tenant_entity_1 = require("./@entities/tenant.entity");
 const apartment_type_entity_1 = require("./@entities/apartment-type.entity");
 const option_entity_1 = require("./@entities/option.entity");
+const person_entity_1 = require("./@entities/person.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -54,6 +55,7 @@ exports.AppModule = AppModule = __decorate([
                     owner_entity_1.OwnerEntity,
                     option_entity_1.OptionEntity,
                     tenant_entity_1.TenantEntity,
+                    person_entity_1.PersonEntity,
                 ],
                 synchronize: true,
             }),

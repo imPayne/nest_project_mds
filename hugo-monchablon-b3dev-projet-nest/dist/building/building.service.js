@@ -43,7 +43,7 @@ let BuildingService = class BuildingService {
     async update(id, updateBuildingDto) {
         const getBuilding = await this.findOne(id);
         Object.assign(getBuilding, updateBuildingDto);
-        return this.repository.findOne({ where: { id } });
+        return await this.repository.findOne({ where: { id } });
     }
     async remove(id) {
         return `This action removes a #${id} building`;

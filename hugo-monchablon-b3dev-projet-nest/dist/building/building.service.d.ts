@@ -1,7 +1,7 @@
 import { CreateBuildingDto } from './dto/create-building.dto';
 import { BuildingEntity } from '../@entities/building.entity';
 import { Repository } from 'typeorm';
-import { AddressService } from "../address/address.service";
+import { AddressService } from '../address/address.service';
 export declare class BuildingService {
     protected readonly repository: Repository<BuildingEntity>;
     private readonly addressService;

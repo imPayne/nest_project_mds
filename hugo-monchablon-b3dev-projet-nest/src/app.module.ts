@@ -21,6 +21,7 @@ import { PersonModule } from './person/person.module';
 import { TenantEntity } from './@entities/tenant.entity';
 import { ApartmentTypeEntity } from './@entities/apartment-type.entity';
 import { OptionEntity } from './@entities/option.entity';
+import {PersonEntity} from "./@entities/person.entity";
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { OptionEntity } from './@entities/option.entity';
         OwnerEntity,
         OptionEntity,
         TenantEntity,
+        PersonEntity,
       ],
       synchronize: true,
     }),
