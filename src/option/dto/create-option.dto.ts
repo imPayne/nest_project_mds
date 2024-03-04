@@ -7,7 +7,7 @@ export class CreateOptionDto {
   @ApiProperty()
   name: string;
 
-  @ApiProperty({type: [Number]})
+  @ApiProperty()
   @IsOptional()
-  apartments?: number[];
+  apartment: number;
 }

@@ -41,7 +41,7 @@ export class ApartmentEntity {
   )
   apartmentType: ApartmentTypeEntity;
 
-  @ManyToMany(() => OptionEntity, (option) => option.apartments)
+  @OneToMany(() => OptionEntity, (option) => option.apartment)
   options: OptionEntity[];
 
   @OneToMany(() => TenantEntity, (tenant) => tenant.apartment)

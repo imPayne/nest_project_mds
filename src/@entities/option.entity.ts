@@ -2,7 +2,7 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  ManyToMany,
+  ManyToMany, ManyToOne,
 } from 'typeorm';
 import { ApartmentEntity } from './apartment.entity';
 
@@ -14,6 +14,6 @@ export class OptionEntity {
   @Column()
   name: string;
 
-  @ManyToMany(() => ApartmentEntity, (apartment) => apartment.options)
-  apartments: ApartmentEntity[];
+  @ManyToOne(() => ApartmentEntity, (apartment) => apartment.options)
+  apartment: ApartmentEntity;
 }

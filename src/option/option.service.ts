@@ -16,7 +16,7 @@ export class OptionService {
   async create(createOptionDto: CreateOptionDto) {
     const option = new OptionEntity();
     option.name = createOptionDto.name;
-    option.apartments = await this.apartmentService.findByIds(createOptionDto.apartments);
+    option.apartment = await this.apartmentService.findOne(createOptionDto.apartment);
     await this.repository.save(option);
 
     return await this.findOne(option.id);
