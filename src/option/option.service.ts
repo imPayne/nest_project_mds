@@ -1,26 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import {Inject, Injectable} from '@nestjs/common';
 import { CreateOptionDto } from './dto/create-option.dto';
-import { UpdateOptionDto } from './dto/update-option.dto';
+import {OptionEntity} from "../@entities/option.entity";
+import {Repository} from "typeorm";
+import {InjectRepository} from "@nestjs/typeorm";
+import {ApartmentService} from "../apartment/apartment.service";
 
 @Injectable()
 export class OptionService {
-  create(createOptionDto: CreateOptionDto) {
-    return 'This action adds a new option';
+  constructor(
+    @InjectRepository(OptionEntity)
+    private repository: Repository<OptionEntity>,
+    @Inject(ApartmentService)
+    private readonly apartmentService: ApartmentService,
+  ) {}
+  async create(createOptionDto: CreateOptionDto) {
+    const option = new OptionEntity();
+    option.name = createOptionDto.name;
+    option.apartments = await this.apartmentService.findByIds(createOptionDto.apartments);
+    await this.repository.save(option);
+
+    return await this.findOne(option.id);
   }
 
-  findAll() {
-    return `This action returns all option`;
+  async findAll() {
+    return await this.repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} option`;
+  async findOne(id: number) {
+    return await this.repository.findOne({ where: { id } })
   }
 
-  update(id: number, updateOptionDto: UpdateOptionDto) {
+  async update(id: number, updateOptionDto) {
     return `This action updates a #${id} option`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} option`;
+  async remove(id: number) {
+    return await this.repository.remove(await this.findOne(id));
   }
 }

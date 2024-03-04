@@ -9,8 +9,10 @@ import {
 } from '@nestjs/common';
 import { ApartmentService } from './apartment.service';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
+import {ApiTags} from "@nestjs/swagger";
 
 @Controller('apartment')
+@ApiTags("apartment")
 export class ApartmentController {
   constructor(private readonly apartmentService: ApartmentService) {}
 

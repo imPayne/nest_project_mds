@@ -8,8 +8,14 @@ export class CreateOwnerDto {
   is_tva: boolean;
 
   @ApiProperty()
-  name: string;
+  firstName: string;
+
+  @ApiProperty()
+  lastName: string;
+
+  @ApiProperty()
+  phoneNumber: string;
 
   @ApiProperty({ type: [Number] })
-  createAddress: number[];
+  apartments: number[];
 }

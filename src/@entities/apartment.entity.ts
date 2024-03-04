@@ -12,7 +12,7 @@ import { ApartmentTypeEntity } from './apartment-type.entity';
 import { OptionEntity } from './option.entity';
 import { TenantEntity } from './tenant.entity';
 
-@Entity()
+@Entity("apartment")
 export class ApartmentEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -22,6 +22,12 @@ export class ApartmentEntity {
 
   @Column()
   floor: number;
+
+  @Column()
+  loan: number;
+
+  @Column()
+  apartmentNumber: string;
 
   @ManyToOne(() => OwnerEntity, (owner) => owner.apartments)
   owner: OwnerEntity;

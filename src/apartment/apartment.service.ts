@@ -3,6 +3,7 @@ import { CreateApartmentDto } from './dto/create-apartment.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ApartmentEntity } from '../@entities/apartment.entity';
+import { In } from 'typeorm';
 
 @Injectable()
 export class ApartmentService {
@@ -15,11 +16,16 @@ export class ApartmentService {
     const newApartment = new ApartmentEntity();
 
     Object.assign(newApartment, createApartmentDto);
+
     return await this.repository.save(newApartment);
   }
 
   async findAll() {
     return await this.repository.find();
+  }
+
+  async findByIds(ids : number[]) {
+    return await this.repository.findBy({ id: In(ids) });
   }
 
   async findOne(id: number) {

@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePersonDto } from './dto/create-person.dto';
-import { UpdatePersonDto } from './dto/update-person.dto';
 import { PersonEntity } from '../@entities/person.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -25,7 +24,7 @@ export class PersonService {
     return await this.repository.findOne({ where: { id } });
   }
 
-  async update(id: number, updatePersonDto: UpdatePersonDto) {
+  async update(id: number, updatePersonDto) {
     const getPerson = await this.findOne(id);
     Object.assign(getPerson, updatePersonDto);
     return await this.repository.findOne({ where: { id } });

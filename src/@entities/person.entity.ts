@@ -5,7 +5,7 @@ import {
   TableInheritance,
 } from 'typeorm';
 
-@Entity()
+@Entity("person")
 @TableInheritance({ column: { type: 'varchar', name: 'type' } })
 export class PersonEntity {
   @PrimaryGeneratedColumn()

@@ -9,7 +9,7 @@ import { BuildingToCommonEquipment } from './building_common_equipment.entity';
 import { ApartmentEntity } from './apartment.entity';
 import { AddressEntity } from './address.entity';
 
-@Entity()
+@Entity("building")
 export class BuildingEntity {
   @PrimaryGeneratedColumn()
   id: number;

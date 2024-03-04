@@ -14,6 +14,8 @@ export class OwnerService {
     const newOwner = new OwnerEntity();
 
     Object.assign(newOwner, createOwnerDto);
+
+    newOwner.is_tva = true;
     await this.repository.save(newOwner);
     return await this.repository.findOne({ where: { id: newOwner.id } });
   }

@@ -10,8 +10,10 @@ import {
 import { ApartmentTypeService } from './apartment-type.service';
 import { CreateApartmentTypeDto } from './dto/create-apartment-type.dto';
 import { UpdateApartmentTypeDto } from './dto/update-apartment-type.dto';
+import {ApiTags} from "@nestjs/swagger";
 
 @Controller('apartment-type')
+@ApiTags("apartment-type")
 export class ApartmentTypeController {
   constructor(private readonly apartmentTypeService: ApartmentTypeService) {}
 

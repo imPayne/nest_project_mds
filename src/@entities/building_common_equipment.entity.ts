@@ -2,7 +2,7 @@ import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { BuildingEntity } from './building.entity';
 import { CommonEquipmentEntity } from './common_equipment.entity';
 
-@Entity()
+@Entity("building_to_common_equipmentw")
 export class BuildingToCommonEquipment {
   @PrimaryGeneratedColumn()
   id: number;

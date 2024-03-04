@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { ApartmentEntity } from './apartment.entity';
 import { PersonEntity } from './person.entity';
 
-@Entity()
+@Entity("owner")
 export class OwnerEntity extends PersonEntity {
   @PrimaryGeneratedColumn()
   id: number;

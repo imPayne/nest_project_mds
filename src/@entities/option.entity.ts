@@ -2,14 +2,11 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  ManyToOne,
   ManyToMany,
 } from 'typeorm';
 import { ApartmentEntity } from './apartment.entity';
 
-class Apartments {}
-
-@Entity()
+@Entity("option")
 export class OptionEntity {
   @PrimaryGeneratedColumn()
   id: number;
