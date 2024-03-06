@@ -1,0 +1,30 @@
+import { CreateBuildingDto } from './dto/create-building.dto';
+import { UpdateBuildingDto } from './dto/update-building.dto';
+import { BaseService } from 'src/@core/base-service';
+import { BuildingEntity } from './entities/building.entity';
+import { DataSource, Repository } from 'typeorm';
+import { AddressService } from 'src/address/address.service';
+import { CommonFacilityService } from 'src/common-facility/common-facility.service';
+import { BuildingHasFacilityService } from 'src/building_has_facility/building_has_facility.service';
+import { AddFacilityDto } from './dto/add-facilities.dto';
+import { ApartmentService } from 'src/apartment/apartment.service';
+export declare class BuildingService extends BaseService<BuildingEntity> {
+    private readonly buildingRepository;
+    private readonly apartmentService;
+    private readonly addressService;
+    private readonly facilityService;
+    private readonly commonService;
+    protected readonly dataSource: DataSource;
+    constructor(buildingRepository: Repository<BuildingEntity>, apartmentService: ApartmentService, addressService: AddressService, facilityService: BuildingHasFacilityService, commonService: CommonFacilityService, dataSource: DataSource);
+    createBuilding(createBuildingDto: CreateBuildingDto): Promise<BuildingEntity>;
+    assignFacilitiesAndCreateTable(id: number, AddFacilityDto: AddFacilityDto): Promise<BuildingEntity>;
+    findAll(): Promise<BuildingEntity[]>;
+    findOne(id: number): Promise<BuildingEntity>;
+    numberOfApart(id: number): Promise<number>;
+    occupationPourcentage(id: number): Promise<string>;
+    nbTenant(id: number): Promise<number>;
+    underOccupy(id: number): Promise<number>;
+    overOccupy(id: number): Promise<number>;
+    update(id: number, updateBuildingDto: UpdateBuildingDto): Promise<BuildingEntity>;
+    remove(id: number): Promise<BuildingEntity>;
+}

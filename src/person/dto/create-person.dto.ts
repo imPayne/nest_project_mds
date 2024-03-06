@@ -1,13 +1,13 @@
-import { ApiProperty, ApiTags } from '@nestjs/swagger';
+import { ApiProperty } from "@nestjs/swagger";
+import { StringifyOptions } from "querystring";
 
-@ApiTags('persons')
 export class CreatePersonDto {
-  @ApiProperty()
-  firstName: string;
+    @ApiProperty()
+    firstName: string;
 
-  @ApiProperty()
-  lastName: string;
+    @ApiProperty()
+    lastName: string;
 
-  @ApiProperty()
-  phoneNumber: string;
+    @ApiProperty()
+    phoneNumber: string;
 }

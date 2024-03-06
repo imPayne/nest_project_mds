@@ -1,44 +1,49 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAddressDto } from './dto/create-address.dto';
-import { Repository } from 'typeorm';
-import { AddressEntity } from '../@entities/address.entity';
+import { UpdateAddressDto } from './dto/update-address.dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AddressEntity } from './entities/address.entity';
+import { DataSource, Repository } from 'typeorm';
+import { BaseService } from 'src/@core/base-service';
+
 
 @Injectable()
-export class AddressService {
+export class AddressService extends BaseService<AddressEntity> {
+
   constructor(
     @InjectRepository(AddressEntity)
     protected readonly repository: Repository<AddressEntity>,
-  ) {}
-  async create(newAddress: CreateAddressDto): Promise<AddressEntity> {
-    const { id } = await this.repository.save({
-      streetNumber: newAddress.streetNumber,
-      street: newAddress.street,
-      zipCode: newAddress.zipCode,
-      city: newAddress.city,
-    });
-
-    return await this.findOne(id);
+    protected readonly dataSource: DataSource,
+  ){
+    super(dataSource);
   }
 
-  async findAll() {
+  async create(createAddressDto: CreateAddressDto): Promise<AddressEntity> {
+    const address = new AddressEntity();
+    Object.assign(address, createAddressDto);
+    return (await this.saveEntities(address))?.[0];
+  }
+
+  findAll():Promise<AddressEntity[]> {
     return this.repository.find();
   }
 
-  async findOne(id: number): Promise<AddressEntity> {
-    return await this.repository.findOne({ where: { id } });
+  findOne(id: number):Promise<AddressEntity> {
+    return this.repository.findOneBy({ id });
   }
 
-  async update(id: number, updateAddressDto): Promise<AddressEntity> {
-    const getAddress = await this.findOne(id);
-    Object.assign(getAddress, updateAddressDto);
-    return this.repository.findOne({ where: { id } });
+  async update(id: number, updateAddressDto: UpdateAddressDto):Promise<AddressEntity> {
+    const address:AddressEntity = await this.repository.findOne({ where: { id } });
+    if (!address) {
+      throw new NotFoundException('Address not found');
+    }
+    Object.assign(address, updateAddressDto);
+    return await this.repository.save(address);
   }
 
-  async remove(id: number) {
-    const toRemove: AddressEntity = await this.findOne(id);
-    const address: AddressEntity = toRemove;
-    await this.repository.remove(toRemove);
-    return address;
+  async deleteAddress(id: number): Promise<AddressEntity> {
+    const result = await this.findOne(id);
+    await this.repository.delete(id);
+    return result;
   }
 }

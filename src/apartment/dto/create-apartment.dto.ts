@@ -1,15 +1,23 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from "@nestjs/swagger";
+import { ApartmentOptionEntity } from "src/apartment-option/entities/apartment-option.entity";
+import { TenantEntity } from "src/tenant/entities/tenant.entity";
 
 export class CreateApartmentDto {
-  @ApiProperty()
-  loan: number;
+    @ApiProperty()
+    buildingId: number;
 
-  @ApiProperty()
-  floor: number;
+    @ApiProperty()
+    apartmentTypeId: number;
 
-  @ApiProperty()
-  apartmentNumber: string;
+    @ApiProperty()
+    floor: number;
 
-  @ApiProperty()
-  doorNumber: string;
+    @ApiProperty()
+    door: number;
+
+    @ApiProperty()
+    rent:number;
+
+    @ApiProperty({ type: [Number] })
+    options: number[];
 }

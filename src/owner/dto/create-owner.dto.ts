@@ -1,21 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { Column } from 'typeorm';
+import { ApiProperty } from "@nestjs/swagger";
+import { CreatePersonDto } from "src/person/dto/create-person.dto";
+
 export class CreateOwnerDto {
-  @ApiProperty()
-  accountNumber: string;
+    @ApiProperty()
+    firstName: string;
 
-  @Column()
-  is_tva: boolean;
+    @ApiProperty()
+    lastName: string;
 
-  @ApiProperty()
-  firstName: string;
+    @ApiProperty()
+    phoneNumber: string;
 
-  @ApiProperty()
-  lastName: string;
+    @ApiProperty()
+    account: number;
 
-  @ApiProperty()
-  phoneNumber: string;
-
-  @ApiProperty({ type: [Number] })
-  apartments: number[];
+    @ApiProperty()
+    tva: boolean;
 }

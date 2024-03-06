@@ -1,9 +1,12 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateTenantDto {
-  @ApiProperty()
-  accountNumber: string;
+    @ApiProperty()
+    firstName: string;
 
-  @ApiProperty()
-  isPrimaryTenant: boolean;
+    @ApiProperty()
+    lastName: string;
+
+    @ApiProperty()
+    phoneNumber: string;
 }

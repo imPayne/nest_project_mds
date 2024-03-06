@@ -1,18 +1,14 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { ApartmentService } from './apartment.service';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
-import {ApiTags} from "@nestjs/swagger";
+import { UpdateApartmentDto } from './dto/update-apartment.dto';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { changeOwnerDto } from './dto/change-owner.dto';
+import { addTenantsDto } from './dto/add-tenants.dto';
 
+
+@ApiTags('Appartments')
 @Controller('apartment')
-@ApiTags("apartment")
 export class ApartmentController {
   constructor(private readonly apartmentService: ApartmentService) {}
 
@@ -31,8 +27,18 @@ export class ApartmentController {
     return this.apartmentService.findOne(+id);
   }
 
+  @Patch('/owner/:id')
+  changeOwner(@Param('id') id: string, @Body() changeOwnerDto: changeOwnerDto){
+    return this.apartmentService.changeOwner(+id, changeOwnerDto)
+  }
+
+  @Patch('/tenants/:id')
+  addTenant(@Param('id') id: string, @Body() addTenantsDto: addTenantsDto){
+    return this.apartmentService.addTenant(+id, addTenantsDto)
+  }
+
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateApartmentDto) {
+  update(@Param('id') id: string, @Body() updateApartmentDto: UpdateApartmentDto) {
     return this.apartmentService.update(+id, updateApartmentDto);
   }
 

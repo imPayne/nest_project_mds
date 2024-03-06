@@ -1,43 +1,36 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { OwnerService } from './owner.service';
 import { CreateOwnerDto } from './dto/create-owner.dto';
-import {ApiTags} from "@nestjs/swagger";
+import { UpdateOwnerDto } from './dto/update-owner.dto';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Owner')
 @Controller('owner')
-@ApiTags("owner")
 export class OwnerController {
   constructor(private readonly ownerService: OwnerService) {}
 
   @Post()
-  async ccreate(@Body() createOwnerDto: CreateOwnerDto) {
+  create(@Body() createOwnerDto: CreateOwnerDto) {
     return this.ownerService.create(createOwnerDto);
   }
 
   @Get()
-  async cfindAll() {
+  findAll() {
     return this.ownerService.findAll();
   }
 
   @Get(':id')
-  async cfindOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string) {
     return this.ownerService.findOne(+id);
   }
 
   @Patch(':id')
-  async cupdate(@Param('id') id: string, @Body() updateOwnerDto) {
+  update(@Param('id') id: string, @Body() updateOwnerDto: UpdateOwnerDto) {
     return this.ownerService.update(+id, updateOwnerDto);
   }
 
   @Delete(':id')
-  async cremove(@Param('id') id: string) {
+  remove(@Param('id') id: string) {
     return this.ownerService.remove(+id);
   }
 }

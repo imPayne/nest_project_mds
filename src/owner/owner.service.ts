@@ -1,41 +1,54 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateOwnerDto } from './dto/create-owner.dto';
+import { UpdateOwnerDto } from './dto/update-owner.dto';
+import { OwnerEntity } from './entities/owner.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { OwnerEntity } from '../@entities/owner.entity';
+import { DataSource, Repository } from 'typeorm';
+import { BaseService } from 'src/@core/base-service'; 
+import { PersonEntity } from 'src/person/entities/person.entity';
+import { PersonModule } from 'src/person/person.module';
+import { PersonService } from 'src/person/person.service';
 
 @Injectable()
-export class OwnerService {
+export class OwnerService extends BaseService<OwnerEntity> {
+
   constructor(
     @InjectRepository(OwnerEntity)
-    protected readonly repository: Repository<OwnerEntity>,
-  ) {}
-  async create(createOwnerDto: CreateOwnerDto) {
-    const newOwner = new OwnerEntity();
-
-    Object.assign(newOwner, createOwnerDto);
-
-    newOwner.is_tva = true;
-    await this.repository.save(newOwner);
-    return await this.repository.findOne({ where: { id: newOwner.id } });
+    private readonly repository: Repository<OwnerEntity>,
+    private readonly personService:PersonService, 
+    protected readonly dataSource: DataSource,
+  ) {
+    super(dataSource);
   }
 
-  async findAll() {
-    return await this.repository.find();
+  async create(createOwnerDto: CreateOwnerDto): Promise<OwnerEntity> {
+    const owner:OwnerEntity = new OwnerEntity();
+    Object.assign(owner, createOwnerDto);
+    return await this.saveEntities(owner)?.[0];;
   }
 
-  async findOne(id: number) {
-    return await this.repository.findOne({ where: { id } });
+  findAll(): Promise<OwnerEntity[]> {
+    return this.repository.find()
   }
 
-  async update(id: number, updateOwnerDto) {
-    const getOwner = await this.findOne(id);
-    Object.assign(getOwner, updateOwnerDto);
+  findOne(id: number): Promise<OwnerEntity> {
+    return this.repository.findOne({where: { id }});
+  }
 
-    return await this.repository.findOne({ where: { id } });
+  async update(id: number, updateOwnerDto: UpdateOwnerDto): Promise<OwnerEntity> {
+    const owner = await this.repository.findOne({ where: { id } });
+    if (!owner){
+      throw new NotFoundException('Owner found ');
+    }
+    Object.assign(owner,updateOwnerDto)
+    return this.repository.save(owner);
   }
 
   async remove(id: number) {
-    return await this.repository.softRemove({ id });
+    const result = await this.findOne(id);
+    await this.repository.delete(id);
+    return result;
   }
 }
+
+

@@ -2,26 +2,30 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BuildingEntity } from './@entities/building.entity';
-import { AddressEntity } from './@entities/address.entity';
 import { BuildingModule } from './building/building.module';
-import { AddressModule } from './address/address.module';
 import { ApartmentModule } from './apartment/apartment.module';
-import { CommonEquipmentModule } from './common_equipment/common_equipment.module';
-import { BuildingCommonEquipmentModule } from './building_common_equipment/building_common_equipment.module';
-import { ApartmentEntity } from './@entities/apartment.entity';
-import { BuildingToCommonEquipment } from './@entities/building_common_equipment.entity';
-import { CommonEquipmentEntity } from './@entities/common_equipment.entity';
-import { ApartmentTypeModule } from './apartment-type/apartment-type.module';
+import { AddressModule } from './address/address.module';
+import { AddressEntity } from './address/entities/address.entity';
+import { CommonFacilityModule } from './common-facility/common-facility.module';
 import { OwnerModule } from './owner/owner.module';
-import { OwnerEntity } from './@entities/owner.entity';
 import { TenantModule } from './tenant/tenant.module';
-import { OptionModule } from './option/option.module';
+import { ApartmentOptionModule } from './apartment-option/apartment-option.module';
+import { ApartmentEntity } from './apartment/entities/apartment.entity';
+import { ApartmentOptionEntity } from './apartment-option/entities/apartment-option.entity';
+import { BuildingEntity } from './building/entities/building.entity';
+import { CommonFacilityEntity } from './common-facility/entities/common-facility.entity';
+import { OwnerEntity } from './owner/entities/owner.entity';
+import { TenantEntity } from './tenant/entities/tenant.entity';
+import { ApartmentTypeModule } from './apartment-type/apartment-type.module';
 import { PersonModule } from './person/person.module';
-import { TenantEntity } from './@entities/tenant.entity';
-import { ApartmentTypeEntity } from './@entities/apartment-type.entity';
-import { OptionEntity } from './@entities/option.entity';
-import { PersonEntity } from './@entities/person.entity';
+import { PersonEntity } from './person/entities/person.entity';
+import { BuildingHasFacilityModule } from './building_has_facility/building_has_facility.module';
+import { BuildingHasFacilityEntity } from './building_has_facility/entities/building_has_facility.entity';
+import { ApartmentTypeEntity } from './apartment-type/entities/apartment-type.entity';
+import { ConfigModule } from '@nestjs/config';
+ConfigModule.forRoot();
+
+const db_port: number = parseInt(process.env.DB_Port)
 
 @Module({
   imports: [
@@ -32,31 +36,30 @@ import { PersonEntity } from './@entities/person.entity';
       username: 'root',
       password: 'bXdYvx.b',
       database: 'apinest',
+      synchronize: false,
       entities: [
         AddressEntity,
-        BuildingEntity,
         ApartmentEntity,
-        BuildingToCommonEquipment,
-        CommonEquipmentEntity,
+        ApartmentOptionEntity,
+        BuildingEntity,
+        CommonFacilityEntity,
         OwnerEntity,
-        ApartmentTypeEntity,
-        OwnerEntity,
-        OptionEntity,
         TenantEntity,
         PersonEntity,
+        BuildingHasFacilityEntity,
+        ApartmentTypeEntity,
       ],
-      synchronize: true,
     }),
     BuildingModule,
-    AddressModule,
     ApartmentModule,
-    CommonEquipmentModule,
-    BuildingCommonEquipmentModule,
-    ApartmentTypeModule,
+    AddressModule,
+    CommonFacilityModule,
     OwnerModule,
     TenantModule,
-    OptionModule,
+    ApartmentOptionModule,
+    ApartmentTypeModule,
     PersonModule,
+    BuildingHasFacilityModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b6480461-255f-4272-a645-1e5265e4dbdf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nest-cli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/address.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/apartment-type.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/apartment.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/building.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/building_common_equipment.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/common_equipment.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/option.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/owner.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/person.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/@entities/tenant.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/address/address.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/address/address.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/address/address.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/address/address.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/address/address.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/address/dto/create-address.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/apartment-type.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/apartment-type.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/apartment-type.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/apartment-type.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/apartment-type.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/dto/create-apartment-type.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment-type/dto/update-apartment-type.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment/apartment.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment/apartment.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment/apartment.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment/apartment.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment/apartment.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apartment/dto/create-apartment.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building/building.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building/building.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building/building.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building/building.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building/building.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building/dto/create-building.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building_common_equipment/building_common_equipment.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building_common_equipment/building_common_equipment.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building_common_equipment/building_common_equipment.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building_common_equipment/building_common_equipment.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building_common_equipment/building_common_equipment.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/building_common_equipment/dto/create-building_common_equipment.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common_equipment/common_equipment.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common_equipment/common_equipment.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common_equipment/common_equipment.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common_equipment/common_equipment.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common_equipment/common_equipment.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common_equipment/dto/create-common_equipment.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/dto/create-option.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/dto/update-option.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/option.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/option.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/option.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/option.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/option/option.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/dto/create-owner.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/dto/update-owner.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/owner.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/owner.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/owner.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/owner.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/owner/owner.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/dto/create-person.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/dto/update-person.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/person.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/person.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/person.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/person.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/person/person.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/dto/create-tenant.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/dto/update-tenant.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/tenant.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/tenant.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/tenant.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/tenant.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tenant/tenant.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/jest-e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tsconfig.build.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2dGSR4urPHL5fqwQM2cfwBiCp3a" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hugomonchablon/Developer/nest_project_mds/api-immeuble-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hugomonchablon/Developer/nest_project_mds/api-immeuble-master/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-985749b364ce-JavaScript-WS-233.14475.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b6480461-255f-4272-a645-1e5265e4dbdf" name="Changes" comment="" />
+      <created>1709632911399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709632911399</updated>
+      <workItem from="1709632912468" duration="5778000" />
+      <workItem from="1709733918840" duration="30000" />
+      <workItem from="1709755353848" duration="568000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,19 +1,11 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ApartmentTypeService } from './apartment-type.service';
 import { CreateApartmentTypeDto } from './dto/create-apartment-type.dto';
 import { UpdateApartmentTypeDto } from './dto/update-apartment-type.dto';
-import {ApiTags} from "@nestjs/swagger";
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Appartment type')
 @Controller('apartment-type')
-@ApiTags("apartment-type")
 export class ApartmentTypeController {
   constructor(private readonly apartmentTypeService: ApartmentTypeService) {}
 
@@ -33,10 +25,7 @@ export class ApartmentTypeController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateApartmentTypeDto: UpdateApartmentTypeDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateApartmentTypeDto: UpdateApartmentTypeDto) {
     return this.apartmentTypeService.update(+id, updateApartmentTypeDto);
   }
 

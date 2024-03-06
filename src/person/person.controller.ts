@@ -1,43 +1,36 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { PersonService } from './person.service';
 import { CreatePersonDto } from './dto/create-person.dto';
-import {ApiTags} from "@nestjs/swagger";
+import { UpdatePersonDto } from './dto/update-person.dto';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Person')
 @Controller('person')
-@ApiTags("person")
 export class PersonController {
   constructor(private readonly personService: PersonService) {}
 
   @Post()
-  async create(@Body() createPersonDto: CreatePersonDto) {
+  create(@Body() createPersonDto: CreatePersonDto) {
     return this.personService.create(createPersonDto);
   }
 
   @Get()
-  async findAll() {
+  findAll() {
     return this.personService.findAll();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string) {
     return this.personService.findOne(+id);
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updatePersonDto) {
+  update(@Param('id') id: string, @Body() updatePersonDto: UpdatePersonDto) {
     return this.personService.update(+id, updatePersonDto);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  remove(@Param('id') id: string) {
     return this.personService.remove(+id);
   }
 }

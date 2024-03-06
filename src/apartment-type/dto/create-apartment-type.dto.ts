@@ -1,13 +1,9 @@
-import { ApiProperty, ApiTags } from '@nestjs/swagger';
+import { ApiProperty } from "@nestjs/swagger";
 
-@ApiTags('apartmentType')
 export class CreateApartmentTypeDto {
-  @ApiProperty()
-  id: number;
+    @ApiProperty()
+    name:string;
 
-  @ApiProperty()
-  type: string;
-
-  @ApiProperty()
-  maxOccupants: number;
+    @ApiProperty()
+    capacity:number;
 }
