@@ -35,9 +35,9 @@ export class BuildingController {
     return this.buildingService.update(+id, updateBuildingDto);
   }
 
-  @Get('/pourcentage/:id')
-  occupationPourcentage(@Param('id') id:string){
-    return this.buildingService.occupationPourcentage(+id);
+  @Get('/percentage/:id')
+  occupationPercentage(@Param('id') id:string){
+    return this.buildingService.occupationPercentage(+id);
   }
 
   @Get('/number/:id')

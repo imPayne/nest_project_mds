@@ -84,7 +84,7 @@ export class BuildingService extends BaseService<BuildingEntity> {
     return numberAppartment
   }
 
-  async occupationPourcentage(id:number){
+  async occupationPercentage(id:number){
     const building = await this.findOne(id)
     let numberApartmentOccupy = 0
     for (let i = 0; i < building.apartments.length; i++){
@@ -94,9 +94,9 @@ export class BuildingService extends BaseService<BuildingEntity> {
           numberApartmentOccupy++;
       }
   }  
-    const pourcentage = (numberApartmentOccupy*100)/building.apartments.length;
-    const pourcentageOccupy = `${Number(pourcentage.toFixed(1))}%`;
-    return pourcentageOccupy;
+    const percentage = (numberApartmentOccupy*100)/building.apartments.length;
+    const percentageOccupy = `${Number(percentage.toFixed(1))}%`;
+    return percentageOccupy;
   }
 
   async nbTenant(id:number){
