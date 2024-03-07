@@ -10,7 +10,7 @@ export declare class BuildingController {
     findAll(): Promise<import("./entities/building.entity").BuildingEntity[]>;
     findOne(id: string): Promise<import("./entities/building.entity").BuildingEntity>;
     update(id: string, updateBuildingDto: UpdateBuildingDto): Promise<import("./entities/building.entity").BuildingEntity>;
-    occupationPourcentage(id: string): Promise<string>;
+    occupationPercentage(id: string): Promise<string>;
     numberOfApart(id: string): Promise<number>;
     nbTenants(id: string): Promise<number>;
     underOccupy(id: string): Promise<number>;

@@ -30,13 +30,13 @@ const db_port: number = parseInt(process.env.DB_Port)
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mariadb',
+      type: 'postgres',
       host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'bXdYvx.b',
-      database: 'apinest',
-      synchronize: false,
+      port: 5432,
+      username: 'postgres',
+      password: '7gKzD6e3irS!fgX@\n',
+      database: 'hugomonchablonapinest',
+      synchronize: true,
       entities: [
         AddressEntity,
         ApartmentEntity,

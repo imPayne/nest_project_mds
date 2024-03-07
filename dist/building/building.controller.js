@@ -38,8 +38,8 @@ let BuildingController = class BuildingController {
     update(id, updateBuildingDto) {
         return this.buildingService.update(+id, updateBuildingDto);
     }
-    occupationPourcentage(id) {
-        return this.buildingService.occupationPourcentage(+id);
+    occupationPercentage(id) {
+        return this.buildingService.occupationPercentage(+id);
     }
     numberOfApart(id) {
         return this.buildingService.numberOfApart(+id);
@@ -95,12 +95,12 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], BuildingController.prototype, "update", null);
 __decorate([
-    (0, common_1.Get)('/pourcentage/:id'),
+    (0, common_1.Get)('/percentage/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], BuildingController.prototype, "occupationPourcentage", null);
+], BuildingController.prototype, "occupationPercentage", null);
 __decorate([
     (0, common_1.Get)('/number/:id'),
     __param(0, (0, common_1.Param)('id')),

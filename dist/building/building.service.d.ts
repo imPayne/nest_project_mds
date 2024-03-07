@@ -21,7 +21,7 @@ export declare class BuildingService extends BaseService<BuildingEntity> {
     findAll(): Promise<BuildingEntity[]>;
     findOne(id: number): Promise<BuildingEntity>;
     numberOfApart(id: number): Promise<number>;
-    occupationPourcentage(id: number): Promise<string>;
+    occupationPercentage(id: number): Promise<string>;
     nbTenant(id: number): Promise<number>;
     underOccupy(id: number): Promise<number>;
     overOccupy(id: number): Promise<number>;
