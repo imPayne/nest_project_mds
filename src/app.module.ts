@@ -34,7 +34,7 @@ const db_port: number = parseInt(process.env.DB_Port)
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: '7gKzD6e3irS!fgX@\n',
+      password: '7gKzD6e3irS!fgX@',
       database: 'hugomonchablonapinest',
       synchronize: true,
       entities: [
